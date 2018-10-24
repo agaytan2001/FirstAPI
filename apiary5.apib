@@ -3,7 +3,7 @@ HOST: http://polls.apiblueprint.org/
 
 # API Blueprint Tutorial
 
-Polls is a simple API allowing consumers to view polls and vote in them.
+Polls is a simple API that allows consumers to view polls and vote in them.
 
 # Polls API Root [/]
 
@@ -14,19 +14,19 @@ Polls is a simple API allowing consumers to view polls and vote in them.
         {
             "questions_url": "/questions"
         }
-        
-## Single Question [/questions/{question_id}]
+
+## Question [/questions/{question_id}]
 
 + Parameters
-    + question_id: 1 (required, number) - the id of the question
-qu
-### View a single question [GET]
+    + question_id: 1 (required, number) - ID of the Question in form of an integer
+
+### View a Questions Detail [GET]
 
 + Response 200 (application/json)
 
         {
             "question": "Favourite programming language?",
-            "published_at": "2015-08-05T08:40:51.620Z",
+            "published_at": "2014-11-11T08:40:51.620Z",
             "choices": [
                 {
                     "choice": "Swift",
@@ -44,31 +44,17 @@ qu
             ]
         }
 
-## Voting resource [/questions/{question_id}/choices/{choice_id}]
+## Choice [/questions/{question_id}/choices/{choice_id}]
 
 + Parameters
-    + question_id: 1 (required, number)
-    + choice_id: 1 (required, number)
+    + question_id: 1 (required, number) - ID of the Question in form of an integer
+    + choice_id: 1 (required, number) - ID of the Choice in form of an integer
 
-### Vote on a choice [POST]
+### Vote on a Choice [POST]
+
+This action allows you to vote on a question's choice.
 
 + Response 201
-
-## Choices [/questions/{question_id}/choices]
-+ Parameters
-    + question_id: 1 (required, number)
-    
-### Retrieve choices [GET]
-
-+ Response 200 (application/json)
-
-        [
-            "Swift",
-            "Python",
-            "Objective-C",
-            "Ruby"
-        ]
-
 
 ## Questions Collection [/questions{?page}]
 
@@ -146,6 +132,7 @@ form of choices.
                     }
                 ]
             }
+
 
 + Response 201 (application/json)
 
